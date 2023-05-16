@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package="/pb";
+
+
+message Request {
+    string name = 1;
+}
+
+message Response {
+    string reply = 1;
+}
+
+
+service StreamGrpc {
+    rpc Channel (stream Request) returns (stream Response);
+}
